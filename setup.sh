@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-sudo apt update -y && sudo apt upgrade -y
+sudo apt update -y 
 
 sudo systemctl disable --now apt-daily.timer || true
 sudo systemctl disable --now apt-daily-upgrade.timer || true
@@ -13,3 +13,4 @@ rm rustdesk.deb
 sudo apt install flatpak -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub org.chromium.Chromium -y
+
