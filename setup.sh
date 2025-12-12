@@ -6,14 +6,6 @@ sudo apt update -y
 sudo systemctl disable --now apt-daily.timer || true
 sudo systemctl disable --now apt-daily-upgrade.timer || true
 
-wget https://github.com/rustdesk/rustdesk/releases/download/1.3.7/rustdesk-1.3.7-aarch64.deb -O rustdesk.deb
-sudo dpkg -i rustdesk.deb || sudo apt-get install -f -y
-rm rustdesk.deb
-
-sudo apt install flatpak -y
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub org.chromium.Chromium -y
-
 sudo apt install -y \
   libssl3 libssl-dev libgstreamer1.0-0 gstreamer1.0-tools \
   gstreamer1.0-plugins-good gstreamer1.0-plugins-bad \
@@ -36,6 +28,14 @@ wget --content-disposition 'https://api.ngc.nvidia.com/v2/resources/org/nvidia/d
 
 sudo apt-get install ./deepstream-7.0_7.0.0-1_arm64.deb
 sudo ldconfig
+
+wget https://github.com/rustdesk/rustdesk/releases/download/1.3.7/rustdesk-1.3.7-aarch64.deb -O rustdesk.deb
+sudo dpkg -i rustdesk.deb || sudo apt-get install -f -y
+rm rustdesk.deb
+
+sudo apt install flatpak -y
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub org.chromium.Chromium -y
 
 /opt/nvidia/deepstream/deepstream-7.0/bin/deepstream-app --version
 
