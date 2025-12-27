@@ -12,6 +12,7 @@ pactl set-sink-volume alsa_output.usb-Solid_State_System_Co._Ltd._USB_PnP_Audio_
 sudo cp pulseaudio.service /etc/systemd/system/pulseaudio.service
 sudo systemctl --system enable --now pulseaudio.service
 sudo systemctl --system status pulseaudio.service
+sudo pip3 install -U jetson-stats
 sudo systemctl enable jtop.service
 ./autorun.sh
 cd AccessPopup
